@@ -37,6 +37,7 @@ background: yellow;
   justify-content: center；
   flex-direction: column;
   position: relative;
+  text-align: center;
 }
 
 /* Close button */
