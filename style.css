@@ -32,10 +32,7 @@ background: yellow;
   height: 300px;
   background: white;
   border-radius: 50%;            /* THIS makes it a circle */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: block;
   position: relative;
 }
 
