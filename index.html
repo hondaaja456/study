@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+</head>
+<button id="myBtn">Open Modal</button>
+
+<div id="modal" style="display:none;">
+  <p>Hello! I am a modal.</p>
+  <button id="closeBtn">Close</button>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById("modal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+
+  document.getElementById("myBtn").addEventListener("click", () => {
+    openModal(); // ← function is CALLED here
+  });
+
+  document.getElementById("closeBtn").addEventListener("click", () => {
+    closeModal();
+  });
+</script>
+
+
+
+</html>
