@@ -30,7 +30,10 @@ background: yellow;
 #circleModal {
   width: 300px;
   height: 300px;
-  background: white;
+  background-image: url("https://example.com/pic/example.gif");
+   background-size: cover;        /* fills the circle */
+  background-position: center;   /* centers the GIF */
+  background-repeat: no-repeat;
   border-radius: 50%;            /* THIS makes it a circle */
   display: flex;
   align-items: center;
