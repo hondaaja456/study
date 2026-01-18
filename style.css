@@ -34,7 +34,7 @@ background: yellow;
   border-radius: 50%;            /* THIS makes it a circle */
   display: flex;
   align-items: center;
-  justofy-content: center；
+  justify-content: center；
   flex-direction: column;
   position: relative;
 }
