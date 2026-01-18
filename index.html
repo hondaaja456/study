@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,25 +13,23 @@
   <div id="circleModal">
   <p>Hello! I am a modal.</p>
   <button id="closeBtn">Close</button>
-</div>
+</div></div>
+
 
 <script>
-  function openModal() {
-    document.getElementById("modal").style.display = "block";
-  }
+  const overlay = document.getElementById("modalOverlay");
+  const openBtn = document.getElementById("myBtn");
+  const closeBtn = document.getElementById("closeBtn");
 
-  function closeModal() {
-    document.getElementById("modal").style.display = "none";
-  }
-
-  document.getElementById("myBtn").addEventListener("click", () => {
-    openModal(); // ← function is CALLED here
+  openBtn.addEventListener("click", () => {
+    overlay.style.display = "flex";
   });
 
-  document.getElementById("closeBtn").addEventListener("click", () => {
-    closeModal();
+  closeBtn.addEventListener("click", () => {
+    overlay.style.display = "none";
   });
 </script>
+
 
 </body>
 
