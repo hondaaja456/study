@@ -1,11 +1,14 @@
-body{
-  background-color: light blue;
-  display: center;
+body {
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
-#mybtn{
-align-items: center;
+#myBtn{
+ padding: 10px 20px;
+  cursor: pointer;
 background: yellow;
 }
 
