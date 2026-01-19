@@ -1,14 +1,28 @@
 const form = document.getElementById("characterForm");
 const list = document.getElementById("characterList");
 
+function escapeHTML(str) { 
+return str 
+.replace(/&/g, "&amp;") 
+.replace(/</g, "&lt;") 
+.replace(/>/g, "&gt;") 
+.replace(/"/g, "&quot;") 
+.replace(/'/g, "&#039;"); }
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const name = document.getElementById("name").value;
+  const safeName = escapeHTML(name);
   const charClass = document.getElementById("class").value;
+  const safecharClass = escapeHTML(charClass);
   const element = document.getElementById("element").value;
+  const safeElement = escapeHTML(element);
   const weapon = document.getElementById("weapon").value;
+  const safeWeapon = escapeHTML(weapon);
   const skills = document.getElementById("skills").value.split(",");
+  const safeSkills = skills.map(s => escapeHTML(s));
+
 
   const stats = {
     strength: strength.value,
@@ -27,16 +41,16 @@ form.addEventListener("submit", function (e) {
   }
 
   list.innerHTML += `
-    <div class="card">
-      ${imageURL ? `<img src="${imageURL}">` : ""}
-      <h3>${name}</h3>
-      <p><strong>Class:</strong> ${charClass}</p>
-      <p><strong>Element:</strong> ${element}</p>
-      <p><strong>Weapon:</strong> ${weapon}</p>
-      <p><strong>Skills:</strong></p>
-      <ul>
-        ${skills.map(s => `<li>${s}</li>`).join("")}
-      </ul>
+  <div class="card">
+    ${imageURL ? `<img src="${imageURL}">` : ""}
+    <h3>${safeName}</h3>
+    <p><strong>Class:</strong> ${safeClass}</p>
+    <p><strong>Element:</strong> ${safeElement}</p>
+    <p><strong>Weapon:</strong> ${safeWeapon}</p>
+    <p><strong>Skills:</strong></p>
+    <ul>
+      ${safeSkills.map(s => `<li>${s}</li>`).join("")}
+    </ul>
 
       <p>Strength</p>
       <div class="bar"><div class="fill" style="width:${stats.strength * 10}%"></div></div>
