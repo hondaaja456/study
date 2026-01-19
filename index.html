@@ -1,26 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RPG Character Selection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-<div id="profile"></div>
+<h1>Choose Your Character</h1>
 
-<script>
-function escapeHTML(str) {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
+<div id="character-row"></div>
 
-let name = prompt("Enter your name");
-
-document.getElementById("profile").innerHTML = `
-  <h2>${escapeHTML(name)}</h2>
-  <p>Level 1</p>
-`;
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
