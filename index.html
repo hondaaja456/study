@@ -1,37 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-
-
-</head>
 <body>
-<button id="myBtn">Open Modal</button>
 
-<div id="modalOverlay">
-  <div id="circleModal">
-  <p><a href="https://www.google.com/search?q=translate" target="_blank" rel="noopener noreferrer"> Hello! I am a modal.</a></p>
-  <button id="closeBtn">Close</button>
-</div></div>
-
+<div id="profile"></div>
 
 <script>
-  const overlay = document.getElementById("modalOverlay");
-  const openBtn = document.getElementById("myBtn");
-  const closeBtn = document.getElementById("closeBtn");
+const profile = document.getElementById("profile");
 
-  openBtn.addEventListener("click", () => {
-    overlay.style.display = "flex";
-  });
-
-  closeBtn.addEventListener("click", () => {
-    overlay.style.display = "none";
-  });
+profile.innerHTML = `
+  <h2>Hero</h2>
+  <p>Level 1</p>
+`;
 </script>
 
-
 </body>
-
-
 </html>
