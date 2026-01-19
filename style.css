@@ -1,45 +1,73 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #1e1e2f;
+  background: #12121a;
   color: #fff;
-  text-align: center;
-}
-
-h1 {
-  margin: 20px 0;
-}
-
-#character-row {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
+  font-family: Arial, sans-serif;
   padding: 20px;
 }
 
+h1, h2 {
+  text-align: center;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  background: #1f1f2e;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+input, textarea, button {
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+}
+
+textarea {
+  height: 80px;
+}
+
+button {
+  background: gold;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.stats label {
+  display: block;
+  font-size: 14px;
+}
+
+#characterList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
 .card {
-  background: #2b2b3d;
-  border: 2px solid #444;
+  background: #25253a;
   border-radius: 10px;
   padding: 15px;
-  transition: transform 0.2s, border-color 0.2s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: gold;
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.card h2 {
-  margin-bottom: 10px;
-  color: gold;
+.bar {
+  background: #333;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 6px;
 }
 
-.stat {
-  font-size: 14px;
-  margin: 4px 0;
-}
-
-.skill {
-  font-size: 13px;
-  color: #a0e0ff;
+.fill {
+  background: #4caf50;
+  height: 100%;
 }
