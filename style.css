@@ -67,6 +67,26 @@ button {
   margin-bottom: 6px;
 }
 
+
+#imagePreview img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+#removeImage {
+  margin-top: 8px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
 .fill {
   background: #4caf50;
   height: 100%;
