@@ -33,12 +33,24 @@ form.addEventListener("submit", function (e) {
     intelligence: intelligence.value
   };
 
-  const imageInput = document.getElementById("image");
-  let imageURL = "";
+const imageInput = document.getElementById("image");
+const imagePreview = document.getElementById("imagePreview");
+const removeImageBtn = document.getElementById("removeImage");
 
+  
+  imageInput.addEventListener("change", () => {
   if (imageInput.files.length > 0) {
-    imageURL = URL.createObjectURL(imageInput.files[0]);
+    currentImageURL = URL.createObjectURL(imageInput.files[0]);
+
+    imagePreview.innerHTML = `<img src="${currentImageURL}">`;
+    removeImageBtn.style.display = "block";
   }
+});
+
+
+
+
+let currentImageURL = "";
 
   list.innerHTML += `
   <div class="card">
