@@ -137,10 +137,6 @@ const strength = document.getElementById("strength");
    </div>
    
    
-
-   
-
-output.innerHTML += `
        <div class="bar"><div class="fill" style="width:${strength.value * 10}%"></div></div>
 
    `;
