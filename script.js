@@ -125,6 +125,7 @@ const output = document.getElementById("output");
 
 const strength = document.getElementById("strength");
 
+
    
  output.innerHTML += `
    <div class="card">
