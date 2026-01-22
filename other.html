@@ -1,23 +1,49 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>OC Character Creator</title>
-  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<h1>OC Character Creator</h1>
 
-<form id="charForm">
-  <input id="name" placeholder="Character Name" required>
-  <input id="class" placeholder="Class" required>
-  <input id="strength" type="range" min="1" max="10">
-  <button>Create</button>
+<form id="characterForm">
+  <input type="text" id="name" placeholder="Character Name" required>
+  <input type="text" id="class" placeholder="Class" required>
+  <input type="text" id="element" placeholder="Element" required>
+  <input type="text" id="weapon" placeholder="Weapon / Ability" required>
+
+  <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
+
+  <label>Upload Character Image</label>
+  <input type="file" id="image" accept="image/*">
+  
+<div id="imagePreview"></div>
+<button type="button" id="removeImage" style="display:none;">
+  Remove Image
+</button>
+
+  <h3>Stats (1–10)</h3>
+
+  <div class="stats">
+    <label>Strength <input type="range" min="1" max="10" value="5" id="strength"></label>
+    <label>Speed <input type="range" min="1" max="10" value="5" id="speed"></label>
+    <label>Defense <input type="range" min="1" max="10" value="5" id="defense"></label>
+    <label>Evasion <input type="range" min="1" max="10" value="5" id="evasion"></label>
+    <label>Charisma <input type="range" min="1" max="10" value="5" id="charisma"></label>
+    <label>Intelligence <input type="range" min="1" max="10" value="5" id="intelligence"></label>
+  </div>
+
+  <button type="submit">Create Character</button>
 </form>
 
-<div id="output"></div>
+<hr>
 
+<h2>Submitted Characters</h2>
+<div id="characterList"></div>
 
-  
 <script src="script.js"></script>
 </body>
 </html>
