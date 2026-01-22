@@ -88,6 +88,11 @@
 const form = document.getElementById("charForm");
 
 
+ const imageInput = document.getElementById("image");
+ const imagePreview = document.getElementById("imagePreview");
+const removeImageBtn = document.getElementById("removeImage");
+
+ let currentImageURL = "";
 
  function escapeHTML(str) { 
  return str 
@@ -101,17 +106,65 @@ const form = document.getElementById("charForm");
 const output = document.getElementById("output");
 
 
+
+
  form.addEventListener("submit", function (e) {
    e.preventDefault();
 
   const safeName = escapeHTML(document.getElementById("name").value);
   const safeCharClass = escapeHTML(document.getElementById("class").value);
+
+   const safeSkills = document    //array
+    .getElementById("skills")
+    .value
+     .split(",")
+      .map(s => s.trim())
+     .filter(s => s !== "")
+   .map(s => escapeHTML(s.trim()));
+
+
+
+   
+ list.innerHTML += `
+   <div class="card">
+      ${currentImageURL ? `<img src="${currentImageURL}">` : ""}
+       <h3>${safeName}</h3>
+      <p><strong>Class:</strong> ${safeCharClass}</p>
+      <ul>
+    ${safeSkills.map(s => `<li>${s}</li>`).join("")}
+   </ul>
+   
+   
 const strength = document.getElementById("strength");
+   
 
 output.innerHTML += `
-       `<div class="bar"><div class="fill" style="width:${strength.value * 10}%"></div></div>
+       <div class="bar"><div class="fill" style="width:${strength.value * 10}%"></div></div>
 
    `;
 
+
+
    form.reset();
  });
+
+
+
+  imageInput.addEventListener("change", () => {
+   if (imageInput.files.length > 0) {
+     currentImageURL = URL.createObjectURL(imageInput.files[0]);
+
+     imagePreview.innerHTML = `<img src="${currentImageURL}">`;
+     removeImageBtn.style.display = "block";
+   }
+ });
+
+
+removeImageBtn.addEventListener("click", () => {
+  currentImageURL = "";
+  imageInput.value = "";
+   imagePreview.innerHTML = "";
+   removeImageBtn.style.display = "none";
+ });
+
+
