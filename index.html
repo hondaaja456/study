@@ -10,9 +10,21 @@
 <form id="charForm">
   <input id="name" placeholder="Character Name" required>
   <input id="class" placeholder="Class" required>
+ <input id="Skills" placeholder="Skills" required>
+  
+   
+  
   <P>STRENGTH</P>
   <input id="strength" type="range" min="1" max="10">
-    <input id="Skills" placeholder="Skills" required>
+   
+
+   <label>Upload Character Image</label>
+  <input type="file" id="image" accept="image/*">
+  
+<div id="imagePreview"></div>
+<button type="button" id="removeImage" style="display:none;">
+  Remove Image
+</button>
 
   <button>Create</button>
 </form>
