@@ -1,6 +1,13 @@
 const form = document.getElementById("characterForm");
 const list = document.getElementById("characterList");
 
+const imageInput = document.getElementById("image");
+const imagePreview = document.getElementById("imagePreview");
+const removeImageBtn = document.getElementById("removeImage");
+
+
+let currentImageURL = "";
+
 function escapeHTML(str) { 
 return str 
 .replace(/&/g, "&amp;") 
@@ -12,30 +19,49 @@ return str
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const safeName = escapeHTML(name);
-  const charClass = document.getElementById("class").value;
-  const safecharClass = escapeHTML(charClass);
-  const element = document.getElementById("element").value;
-  const safeElement = escapeHTML(element);
-  const weapon = document.getElementById("weapon").value;
-  const safeWeapon = escapeHTML(weapon);
-  const skills = document.getElementById("skills").value.split(",");
-  const safeSkills = skills.map(s => escapeHTML(s));
+  const safeName = escapeHTML(document.getElementById("name").value);
+  const safeCharClass = escapeHTML(document.getElementById("class").value);
+  const safeElement = escapeHTML(document.getElementById("element").value);
+  const safeWeapon = escapeHTML(document.getElementById("weapon").value);
 
+  const safeSkills = document
+    .getElementById("skills")
+    .value
+    .split(",")
+    .filter(s => s !== "")
+    .map(s => escapeHTML(s.trim()));
 
-  const stats = {
-    strength: strength.value,
-    speed: speed.value,
-    defense: defense.value,
-    evasion: evasion.value,
-    charisma: charisma.value,
-    intelligence: intelligence.value
-  };
+  const strength = document.getElementById("strength");
+  const speed = document.getElementById("speed");
+  const defense = document.getElementById("defense");
+  const evasion = document.getElementById("evasion");
+  const charisma = document.getElementById("charisma");
+  const intelligence = document.getElementById("intelligence");
 
-const imageInput = document.getElementById("image");
-const imagePreview = document.getElementById("imagePreview");
-const removeImageBtn = document.getElementById("removeImage");
+  list.innerHTML += `
+    <div class="card">
+      ${currentImageURL ? `<img src="${currentImageURL}">` : ""}
+      <h3>${safeName}</h3>
+      <p><strong>Class:</strong> ${safeCharClass}</p>
+      <p><strong>Element:</strong> ${safeElement}</p>
+      <p><strong>Weapon:</strong> ${safeWeapon}</p>
+
+      <ul>
+        ${safeSkills.map(s => `<li>${s}</li>`).join("")}
+      </ul>
+
+      <div class="bar"><div class="fill" style="width:${strength.value * 10}%"></div></div>
+      <div class="bar"><div class="fill" style="width:${speed.value * 10}%"></div></div>
+      <div class="bar"><div class="fill" style="width:${defense.value * 10}%"></div></div>
+      <div class="bar"><div class="fill" style="width:${evasion.value * 10}%"></div></div>
+      <div class="bar"><div class="fill" style="width:${charisma.value * 10}%"></div></div>
+      <div class="bar"><div class="fill" style="width:${intelligence.value * 10}%"></div></div>
+    </div>
+  `;
+
+  form.reset();
+});
+
 
   
   imageInput.addEventListener("change", () => {
@@ -48,42 +74,12 @@ const removeImageBtn = document.getElementById("removeImage");
 });
 
 
-
-
-let currentImageURL = "";
-  ${currentImageURL ? <img src="${currentImageURL}"> : ""}
-
-  list.innerHTML += `
-  <div class="card">
-    ${imageURL ? `<img src="${imageURL}">` : ""}
-    <h3>${safeName}</h3>
-    <p><strong>Class:</strong> ${safeClass}</p>
-    <p><strong>Element:</strong> ${safeElement}</p>
-    <p><strong>Weapon:</strong> ${safeWeapon}</p>
-    <p><strong>Skills:</strong></p>
-    <ul>
-      ${safeSkills.map(s => `<li>${s}</li>`).join("")}
-    </ul>
-
-      <p>Strength</p>
-      <div class="bar"><div class="fill" style="width:${stats.strength * 10}%"></div></div>
-
-      <p>Speed</p>
-      <div class="bar"><div class="fill" style="width:${stats.speed * 10}%"></div></div>
-
-      <p>Defense</p>
-      <div class="bar"><div class="fill" style="width:${stats.defense * 10}%"></div></div>
-
-      <p>Evasion</p>
-      <div class="bar"><div class="fill" style="width:${stats.evasion * 10}%"></div></div>
-
-      <p>Charisma</p>
-      <div class="bar"><div class="fill" style="width:${stats.charisma * 10}%"></div></div>
-
-      <p>Intelligence</p>
-      <div class="bar"><div class="fill" style="width:${stats.intelligence * 10}%"></div></div>
-    </div>
-  `;
-
-  form.reset();
+removeImageBtn.addEventListener("click", () => {
+  currentImageURL = "";
+  imageInput.value = "";
+  imagePreview.innerHTML = "";
+  removeImageBtn.style.display = "none";
 });
+
+
+ 
