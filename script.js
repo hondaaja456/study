@@ -51,6 +51,7 @@ const removeImageBtn = document.getElementById("removeImage");
 
 
 let currentImageURL = "";
+  ${currentImageURL ? <img src="${currentImageURL}"> : ""}
 
   list.innerHTML += `
   <div class="card">
