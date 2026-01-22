@@ -120,12 +120,12 @@ const output = document.getElementById("output");
      .split(",")
       .map(s => s.trim())
      .filter(s => s !== "")
-   .map(s => escapeHTML(s.trim()));
+ .map(s => escapeHTML(s));
 
-
+const strength = document.getElementById("strength");
 
    
- list.innerHTML += `
+ output.innerHTML += `
    <div class="card">
       ${currentImageURL ? `<img src="${currentImageURL}">` : ""}
        <h3>${safeName}</h3>
@@ -133,9 +133,10 @@ const output = document.getElementById("output");
       <ul>
     ${safeSkills.map(s => `<li>${s}</li>`).join("")}
    </ul>
+   </div>
    
    
-const strength = document.getElementById("strength");
+
    
 
 output.innerHTML += `
@@ -145,8 +146,12 @@ output.innerHTML += `
 
 
 
-   form.reset();
- });
+ form.reset();
+  currentImageURL = "";
+  imagePreview.innerHTML = "";
+  removeImageBtn.style.display = "none";
+});
+
 
 
 
