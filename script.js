@@ -6,6 +6,7 @@
 // const removeImageBtn = document.getElementById("removeImage");
 
 
+
 // let currentImageURL = "";
 
 // function escapeHTML(str) { 
